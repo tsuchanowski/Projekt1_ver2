@@ -1,0 +1,85 @@
+{{>header}}
+
+<table border="3" style="width:100%;table-layout:fixed;">
+    <tr>
+        <th class="header" style="width:25%" scope="col">
+            NAZWA UŻYTKOWNIKA
+        </th>
+        <th class="header" scope="col">
+            ADRES
+        </th>
+        <th class="header" scope="col">
+            FIRMA/OSOBA
+        </th>
+        <th class="header" scope="col">
+            NUMER NIP
+        </th>
+    </tr>
+</table>
+
+<table border="1" style="width:100%;table-layout:fixed;">
+    <tr>
+        <td class="row" style="width:25%">
+            {{name}}
+        </td>
+        <td class="row">
+            {{address}}
+        </td>
+        <td class="row">
+            {{company}}
+        </td>
+        <td class="row">
+            {{nipnumber}}
+        </td>
+    </tr>
+</table>
+<br>
+<br>
+
+
+<a href="/customer_site/{{id}}/new_event">
+    DODAJ ZDARZENIE
+</a>
+
+<table border="3" style="width:100%;table-layout:fixed;">
+    <tr>
+        <th class="header" style="width:25%" scope="col">
+            DATA KONTAKTU
+        </th>
+        <th class="header" scope="col">
+            RODZAJ AKCJI
+        </th>
+        <th class="header" scope="col">
+            OPIS AKCJI
+        </th>
+        <th class="header" style="width:18%" scope="col">
+            AKCJE
+        </th>
+    </tr>
+</table>
+{{!-- as |event| --}}
+
+{{#each events as |event|}}
+<table border="1" style="width:100%;table-layout:fixed;">
+    <tr>
+        <td class="row" style="width:25%">
+            {{event.eventdate}}
+        </td>
+        <td class="row">
+            {{event.action}}
+        </td>
+        <td class="row">
+            {{event.description}}
+        </td>
+        <td class="row" style="width:18%">
+            <form method="POST" action="/customer_site/{{event._id}}">
+                <button>
+                    USUŃ
+                </button>
+            </form>
+        </td>
+    </tr>
+</table>
+{{/each}}
+
+{{>footer_klienta}}
