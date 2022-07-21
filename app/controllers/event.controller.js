@@ -2,7 +2,7 @@ const Customer = require('../models/Customer')
 const Event = require('../models/Event')
 
 function newEvent(req, res) {
-  res.render('add_actions', { id: req.params.id })
+  res.render('add_events', { id: req.params.id })
 }
 
 function addEvent(req, res) {

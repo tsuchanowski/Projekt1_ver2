@@ -6,7 +6,7 @@ function customersList(req, res) {
         if (err) {
             res.send(err)
         } else {
-            res.render('tabela', {
+            res.render('customers_table', {
                 customers,
                 helpers: {
                     inc: function (value) {
@@ -53,7 +53,7 @@ function showCustomer(req, res, cb) {
             customer.populate('events')
         }
 
-        res.render('tabela_klienta', {
+        res.render('events_customer_table', {
             id: customer._id,
             name: customer.name,
             address: customer.address,

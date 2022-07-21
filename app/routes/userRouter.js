@@ -9,14 +9,14 @@ router.get('/', function (req, res) {
 
 
 router.get('/signup', function (req, res) {
-  res.render('add_user')
+  res.render('add_new_user')
 })
 
 router.post('/signup', function (req, res) {
   userController.add(req.body, function (err) {
     if (err) {
       res.status(404)
-      res.render('add_user', { message: 'nie udało się dodać użytkownika' })
+      res.render('add_new_user', { message: 'nie udało się dodać użytkownika' })
     } else {
       req.flash('message', 'Dodano użytkownika')
       res.redirect('/login')
