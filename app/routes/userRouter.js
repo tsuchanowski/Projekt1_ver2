@@ -13,7 +13,7 @@ router.get('/signup', function (req, res) {
 })
 
 router.post('/signup', function (req, res) {
-  userController.add(req.body, function (err, user) {
+  userController.add(req.body, function (err) {
     if (err) {
       res.status(404)
       res.render('add_user', { message: 'nie udało się dodać użytkownika' })

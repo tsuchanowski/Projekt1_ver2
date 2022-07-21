@@ -19,42 +19,54 @@ function customersList(req, res) {
 }
 
 
-function customerAdd(cb, data, req, res) {
+function customerAdd(req, res) {
+    console.log(req.body)
+    const customerId = req.params.id
+    const newCustomer = new Customer({ customers: customerId, ...req.body })
 
-    let newCustomer = new Customer(data)
-    newCustomer.save(req.body, function (err, customers) {
-        console.log(req.body)
+    newCustomer.save(function (err) {
+        if (err)
+            return handleError(err)
+    })
+
+    res.redirect('/addcustom')
+}
+
+function customerDelete(req, res, cb) {
+    const customerId = req.params.id
+    Customer.deleteOne({ _id: customerId }, function (err) {
+        if (err) {
+            cb(err)
+        }
+    })
+
+    res.redirect('/addcustom')
+}
+
+function showCustomer(req, res, cb) {
+    const customerId = req.params.id
+    Customer.findOne({ _id: customerId }, function (err, customer) {
         if (err) {
             cb(err)
         }
         else {
-            cb(null, customers)
-            res.render('tabela', { customers })
-
+            customer.populate('events')
         }
+
+        res.render('tabela_klienta', {
+            id: customer._id,
+            name: customer.name,
+            address: customer.address,
+            company: customer.company,
+            nipnumber: customer.nipnumber,
+            events: customer.events
+        })
     })
-
-    res.redirect('/addcustom')
 }
-
-
-function customerDelete(id, cb, req, res) {
-    console.log(req.params.id)
-    const customerId = req.params.id
-    Customer.deleteOne(customerId, { _id: id }, function (err, customer) {
-        if (err) {
-            cb(err)
-        } else {
-            cb(null, customer)
-        }
-    })
-    
-    res.redirect('/addcustom')
-}
-
 
 module.exports = {
     customersList: customersList,
     customerAdd: customerAdd,
-    customerDel: customerDelete
+    customerDel: customerDelete,
+    showCustomer: showCustomer
 }
