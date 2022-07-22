@@ -1,12 +1,17 @@
 const Customer = require('../models/Customer')
 
 
+function showFormCustomer(req, res) {
+    res.render('customer/add')
+}
+
+
 function customersList(req, res) {
     Customer.find().lean().exec(function (err, customers) {
         if (err) {
             res.send(err)
         } else {
-            res.render('customers_table', {
+            res.render('customer/show', {
                 customers,
                 helpers: {
                     inc: function (value) {
@@ -20,7 +25,6 @@ function customersList(req, res) {
 
 
 function customerAdd(req, res) {
-    console.log(req.body)
     const customerId = req.params.id
     const newCustomer = new Customer({ customers: customerId, ...req.body })
 
@@ -29,7 +33,7 @@ function customerAdd(req, res) {
             return handleError(err)
     })
 
-    res.redirect('/addcustom')
+    res.redirect('/customer/list')
 }
 
 
@@ -41,7 +45,7 @@ function customerDelete(req, res, cb) {
         }
     })
 
-    res.redirect('/addcustom')
+    res.redirect('/customer/list')
 }
 
 
@@ -68,6 +72,7 @@ function showCustomer(req, res, cb) {
 
 
 module.exports = {
+    showForm: showFormCustomer,
     customersList: customersList,
     customerAdd: customerAdd,
     customerDel: customerDelete,

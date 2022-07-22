@@ -4,7 +4,7 @@
 <a href="/logout">Wyloguj</a>
 {{/if}}
 
-<form method="POST" action="/customer_site/{{customerId}}/add_event" onsubmit="return clientValidation()">
+<form method="POST" action="/customer/{{customerId}}/event/add" onsubmit="return clientValidation()">
 
     <label for="eventdate">Data kontaktu</label>
     <input type="text" name="eventdate" id="eventdate">

@@ -10,11 +10,8 @@ function newEvent(req, res) {
 function addEvent(req, res) {
   const customerId = req.params.id
 
-  const event = new Event({
-    customer: customerId,
-    ...req.body
-  })
-  
+  const event = new Event({ customer: customerId, ...req.body })
+
   event.save(function (err) {
     if (err) return handleError(err)
   })
@@ -26,7 +23,7 @@ function addEvent(req, res) {
     customer.save()
   })
 
-  res.redirect('/customer_site/' + customerId)
+  res.redirect('/customer/' + customerId)
 }
 
 
@@ -38,23 +35,40 @@ function eventDelete(req, res) {
   console.log(eventId)
 
 
-  // const event = Event({
-  //   customer: customerId,
-  //   ...req.params.id
-  // })
-
-  // event.deleteOne({ _id: customerId }, function (err, customer) {
+  // Event.deleteOne({ _id: customerId }, function (err, customer) {
   //   if (err) handleError(err)
-
-    // Customer.findOne({ _id: customerId }, function (err, customer) {
-    //   console.log(customer)
-    //   // customer.populate('events')
-    //   customer.events.deleteOne(event)
-    //   customer.delete()
-    // })
-
-  //   res.redirect('/customer_site/:id')
+  //   else {
+  //     console.log(customer)
+  //   }
   // })
+
+
+  // Customer.deleteOne({ _id: eventId }, function (err, customer) {
+  //   if (err) {
+  //     console.log(err)
+  //   } else {
+
+  //     console.log(customer)
+  //     // customer.populate('events')
+  //     // customer.events.remove({})
+  //     // customer.delete(event)
+  //   }
+  // })
+
+  Customer.findByIdAndRemove({ _id: eventId }, function (err, customer) {
+
+    if (err) {
+      console.log(err)
+    } else {
+      console.log(customer)
+    }
+
+
+  })
+
+
+  res.redirect('/customer/' + customerId)
+
 }
 
 
