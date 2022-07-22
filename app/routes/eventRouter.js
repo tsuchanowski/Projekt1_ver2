@@ -4,11 +4,11 @@ const eventController = require('../controllers/event.controller')
 const userController = require('../controllers/user.controller')
 
 
-router.get('/customer_site/:id/new_event', userController.isLoggedIn, eventController.newEvent)
+router.get('/customer/:id/event/new', userController.isLoggedIn, eventController.newEvent)
 
-router.post('/customer_site/:id/add_event', userController.isLoggedIn, eventController.addEvent)
+router.post('/customer/:id/event/add', userController.isLoggedIn, eventController.addEvent)
 
-router.post('/customer_site/:id', userController.isLoggedIn, eventController.delEvent)
+router.post('/customer/:id/event/:eventId', userController.isLoggedIn, eventController.delEvent)
 
 
 module.exports = router

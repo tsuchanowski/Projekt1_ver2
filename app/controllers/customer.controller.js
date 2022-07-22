@@ -32,6 +32,7 @@ function customerAdd(req, res) {
     res.redirect('/addcustom')
 }
 
+
 function customerDelete(req, res, cb) {
     const customerId = req.params.id
     Customer.deleteOne({ _id: customerId }, function (err) {
@@ -42,6 +43,7 @@ function customerDelete(req, res, cb) {
 
     res.redirect('/addcustom')
 }
+
 
 function showCustomer(req, res, cb) {
     const customerId = req.params.id
@@ -54,7 +56,7 @@ function showCustomer(req, res, cb) {
         }
 
         res.render('events_customer_table', {
-            id: customer._id,
+            customerId: customer._id,
             name: customer.name,
             address: customer.address,
             company: customer.company,
@@ -63,6 +65,7 @@ function showCustomer(req, res, cb) {
         })
     })
 }
+
 
 module.exports = {
     customersList: customersList,

@@ -3,15 +3,15 @@ const router = express.Router()
 const userController = require('../controllers/user.controller')
 const customerController = require('../controllers/customer.controller')
 
-router.get('/formcustom', userController.isLoggedIn, function (req, res) {
-  res.render('add_customer')
+router.get('/customer/new', userController.isLoggedIn, function (req, res) {
+  res.render('customer/add')
 })
 
-router.get('/addcustom', userController.isLoggedIn, customerController.customersList)
+router.post('/customer/add', userController.isLoggedIn, customerController.customerAdd)
 
-router.get('/customer_site/:id', userController.isLoggedIn, customerController.showCustomer)
+router.get('/customer/list', userController.isLoggedIn, customerController.customersList)
 
-router.post('/formcustom', userController.isLoggedIn, customerController.customerAdd)
+router.get('/customer/:id', userController.isLoggedIn, customerController.showCustomer)
 
 router.post('/:id', userController.isLoggedIn, customerController.customerDel)
 

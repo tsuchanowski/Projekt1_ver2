@@ -61,7 +61,7 @@ router.post('/login', (req, res, next) => {
 
       console.log('passportCallBack')
       // req.session.msgCssClass = 'alert-success'
-      return res.redirect('/addcustom')
+      return res.redirect('/customer/list')
     })
   })(req, res, next)
 })
