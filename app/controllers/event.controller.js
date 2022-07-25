@@ -42,32 +42,15 @@ function eventDelete(req, res) {
     }
 
     console.log('tutaj updatuję customera i usuwam reference_id')
-    Customer.findOne({ _id: customerId }, function (err, customer) {
+    Customer.updateOne({ _id: customerId }, { $pullAll: { events: [{ _id: eventId }] } }, function (err) {
       if (err) {
         handleError(err)
       }
-      console.log(customer.name)
     })
-
-
   })
 
 
-  // Customer.deleteOne({ _id: eventId }, function (err, customer) {
-  //   if (err) {
-  //     console.log(err)
-  //   } else {
-
-  //     console.log(customer)
-  //     // customer.populate('events')
-  //     // customer.events.remove({})
-  //     // customer.delete(event)
-  //   }
-  // })
-
-  
   res.redirect('/customer/' + customerId)
-
 }
 
 
