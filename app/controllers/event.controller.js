@@ -31,16 +31,26 @@ function eventDelete(req, res) {
   const customerId = req.params.id
   const eventId = req.params.eventId
 
+
   console.log(customerId)
   console.log(eventId)
 
 
-  // Event.deleteOne({ _id: customerId }, function (err, customer) {
-  //   if (err) handleError(err)
-  //   else {
-  //     console.log(customer)
-  //   }
-  // })
+  Event.deleteOne({ _id: eventId }, function (err) {
+    if (err) {
+      handleError(err)
+    }
+
+    console.log('tutaj updatuję customera i usuwam reference_id')
+    Customer.findOne({ _id: customerId }, function (err, customer) {
+      if (err) {
+        handleError(err)
+      }
+      console.log(customer.name)
+    })
+
+
+  })
 
 
   // Customer.deleteOne({ _id: eventId }, function (err, customer) {
@@ -55,18 +65,7 @@ function eventDelete(req, res) {
   //   }
   // })
 
-  Customer.findByIdAndRemove({ _id: eventId }, function (err, customer) {
-
-    if (err) {
-      console.log(err)
-    } else {
-      console.log(customer)
-    }
-
-
-  })
-
-
+  
   res.redirect('/customer/' + customerId)
 
 }
