@@ -3,10 +3,8 @@ const uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-// mongoose.connect('mongodb://' + process.env.DB_HOST + '/' + process.env.DB_NAME, { useNewUrlParser: true, useUnifiedTopology: true });
-
 const schema = mongoose.Schema({
-    username: { type: String, required: true, unique: true },
+    email: { type: String, index: true, unique: true, required: true, },
     password: { type: String, required: true }
 });
 

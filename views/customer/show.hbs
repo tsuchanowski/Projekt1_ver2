@@ -2,6 +2,7 @@
 
 {{>jumper}}
 
+
 <table border="3" style="width:100%;table-layout:fixed;">
     <tr>
         <th class="header" style="width:10%" scope="col">
@@ -29,7 +30,7 @@
 <table border="1" style="width:100%;table-layout:fixed;">
     <tr>
         <td class="row" rowspan="6" style="width:10%">
-            {{inc @index}}
+            {{inc @index}}.
         </td>
         <td class="row" style="width:25%">
             {{name}}
@@ -45,12 +46,12 @@
         </td>
         <td class="row" style="width:18%">
             <form method="POST" action="/{{_id}}">
-                <button>
+                <button type="submit">
                     USUŃ
                 </button>
             </form>
             <form method="GET" action="/customer/{{_id}}">
-                <button>
+                <button type="submit">
                     STRONA KLIENTA
                 </button>
             </form>
@@ -58,5 +59,6 @@
     </tr>
 </table>
 {{/each}}
+
 
 {{>footer_table}}

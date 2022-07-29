@@ -59,7 +59,7 @@ function showCustomer(req, res, cb) {
             customer.populate('events')
         }
 
-        res.render('events_customer_table', {
+        res.render('event/event_table', {
             customerId: customer._id,
             name: customer.name,
             address: customer.address,

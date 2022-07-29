@@ -31,11 +31,6 @@ function eventDelete(req, res) {
   const customerId = req.params.id
   const eventId = req.params.eventId
 
-
-  console.log(customerId)
-  console.log(eventId)
-
-
   Event.deleteOne({ _id: eventId }, function (err) {
     if (err) {
       handleError(err)
@@ -52,7 +47,6 @@ function eventDelete(req, res) {
 
   res.redirect('/customer/' + customerId)
 }
-
 
 module.exports = {
   newEvent: newEvent,

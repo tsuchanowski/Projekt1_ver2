@@ -1,24 +1,33 @@
 {{>header_user}}
 
 {{#if isLoggedIn }}
-  <a href="/logout">Wyloguj</a>
+<form method="GET" action="/logout">
+    <br>
+    <button type="submit" id="logout">
+        WYLOGUJ
+    </button>
+    <br>
+</form>
 {{/if}}
 
 <form method="POST" action="/customer/add" onsubmit="return customerValidation()">
 
-    <label for="namesurname">Nazwa użytkownika</label>
+    <label for="namesurname">NAZWA UŻYTKOWNIKA:</label>
     <input type="text" name="name" id="name">
     <br>
-    <label for="address">Adres:</label>
+    <label for="address">ADRES:</label>
     <input type="text" name="address" id="address">
     <br>
-    <label for="company">Firma/Osoba:</label>
+    <label for="company">FIRMA/OSOBA:</label>
     <input type="text" name="company" id="company">
     <br>
-    <label for="number">Numer NIP:</label>
+    <label for="number">NUMER NIP:</label>
     <input type="text" name="nipnumber" id="nipnumber">
     <br>
-    <button type="submit">ZAPISZ</button>
+    <br>
+    <button type="submit" id="save">ZAPISZ</button>
+    <br>
+    <br>
 </form>
 
 <ul id="errors"></ul>
@@ -26,11 +35,11 @@
 {{>footer_customer}}
 
 {{!-- <select id="myselect">
-      <option value="1">value1</option>
-      <option value="2" selected="selected">value2</option>
-      <option value="3">value3</option>
-  </select>
+    <option value="1">value1</option>
+    <option value="2" selected="selected">value2</option>
+    <option value="3">value3</option>
+</select>
 
-  var selects = document.getElementById("myselect");
-  var selectedValue = selects.options[selects.selectedIndex].value;// will gives u 2
-  var selectedText = selects.options[selects.selectedIndex].text;// gives u value2 --}}
+var selects = document.getElementById("myselect");
+var selectedValue = selects.options[selects.selectedIndex].value;// will gives u 2
+var selectedText = selects.options[selects.selectedIndex].text;// gives u value2 --}}

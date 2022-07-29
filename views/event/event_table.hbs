@@ -34,12 +34,15 @@
     </tr>
 </table>
 <br>
-<br>
 
-
-<a href="/customer/{{customerId}}/event/new">
-    DODAJ ZDARZENIE
-</a>
+<form method="GET" action="/customer/{{customerId}}/event/new">
+    <br>
+    <button type="submit" id="add_event">
+        * DODAJ ZDARZENIE *
+    </button>
+    <br>
+    <br>
+</form>
 
 <table border="3" style="width:100%;table-layout:fixed;">
     <tr>
@@ -57,7 +60,6 @@
         </th>
     </tr>
 </table>
-{{!-- as |event| --}}
 
 {{#each events as |event|}}
 <table border="1" style="width:100%;table-layout:fixed;">
@@ -73,11 +75,11 @@
         </td>
         <td class="row" style="width:18%">
             {{!-- <form method="POST" action="/customer_site/{{../customerId}}/event/{{event.id}}"> --}}
-            <form method="POST" action="/customer/{{@root.customerId}}/event/{{event.id}}">
-                <button>
-                    USUŃ
-                </button>
-            </form>
+                <form method="POST" action="/customer/{{@root.customerId}}/event/{{event.id}}">
+                    <button>
+                        USUŃ
+                    </button>
+                </form>
         </td>
     </tr>
 </table>
