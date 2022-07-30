@@ -2,16 +2,20 @@
 
 <form method="POST" action="/login" onsubmit="return logValidation()">
     <label for="użytkownik">Adres email użytkownika:</label>
+    <br><br>
     <input type="email" name="username" id="username">
-    <br>
-    <label for="logowanie">Hasło:</label>
+    <label for="logowanie">Hasło dostępu:</label>
+    <br><br>
     <input type="password" name="password" id="password">
-    <br><br>
+    <br>
     <button type="submit">ZALOGUJ</button>
-    <br><br>
+    
 </form>
 <br>
+
+{{#if message}}
 <div id="message">{{message}}</div>
+{{/if}}
 
 <ul id="errors"></ul>
 
