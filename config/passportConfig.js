@@ -8,8 +8,8 @@ module.exports = () => {
   // =============================
   // passport SESSION setup
   // =============================
-  passport.serializeUser(function (user, done) {
-    done(null, user._id)
+  passport.serializeUser(function (email, done) {
+    done(null, email._id)
   })
 
   passport.deserializeUser(function (id, done) {
@@ -20,13 +20,13 @@ module.exports = () => {
 
   passport.use(
     'local-login',
-    new LocalStrategy(function (username, password, done) {
+    new LocalStrategy(function (email, password, done) {
 
       console.log('LocalStrategy User.findOne')
-      console.log(username)
+      console.log(email)
       console.log(password)
 
-      User.findOne({ username: username }, function (err, user) {
+      User.findOne({ email: email }, function (err, user) {
         if (err) {
           return done(err)
         }

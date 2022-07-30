@@ -7,18 +7,17 @@ router.get('/', function (req, res) {
   res.redirect('/login')
 })
 
-
 router.get('/signup', function (req, res) {
-  res.render('add_user')
+  res.render('add_new_user')
 })
 
 router.post('/signup', function (req, res) {
-  userController.add(req.body, function (err, user) {
+  userController.add(req.body, function (err) {
     if (err) {
       res.status(404)
-      res.render('add_user', { message: 'nie udało się dodać użytkownika' })
+      res.render('add_new_user', { message: ' **!! NIE UDAŁO SIĘ DODAĆ UŻYTKOWNIKA !!**' })
     } else {
-      req.flash('message', 'Dodano użytkownika')
+      req.flash('message', ' ** NOWY UŻYTKOWNIK ZOSTAŁ DODANY! **')
       res.redirect('/login')
     }
   })
@@ -42,7 +41,7 @@ router.get('/login', userController.isLoggedOut, function (req, res) {
 router.post('/login', (req, res, next) => {
   passport.authenticate('local-login', function (err, user, info) {
     console.log('post.login passport.authenticate')
-    console.log(user.username)
+    console.log(user.email)
 
     if (err) {
       return next(err)
@@ -50,7 +49,6 @@ router.post('/login', (req, res, next) => {
 
     if (!user) {
       console.log('NOT user')
-      // req.session.msgCssClass = 'alert-danger'
       return res.redirect('/login')
     }
 
@@ -61,7 +59,7 @@ router.post('/login', (req, res, next) => {
 
       console.log('passportCallBack')
       // req.session.msgCssClass = 'alert-success'
-      return res.redirect('/addcustom')
+      return res.redirect('/customer/list')
     })
   })(req, res, next)
 })

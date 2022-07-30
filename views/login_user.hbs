@@ -1,19 +1,22 @@
-{{>header_user}}
+{{>header_newUser_Login}}
 
 <form method="POST" action="/login" onsubmit="return logValidation()">
-
-    <label for="użytkownik">Nazwa użytkownika:</label>
-    <input type="text" name="username" id="username">
-    <br>
-    <label for="logowanie">Hasło:</label>
-    <input type="text" name="password" id="password">
-       
+    <label for="użytkownik">Adres email użytkownika:</label>
+    <br><br>
+    <input type="email" name="username" id="username">
+    <label for="logowanie">Hasło dostępu:</label>
+    <br><br>
+    <input type="password" name="password" id="password">
     <br>
     <button type="submit">ZALOGUJ</button>
+    
 </form>
+<br>
 
-<span>{{message}}</span>
+{{#if message}}
+<div id="message">{{message}}</div>
+{{/if}}
 
-<ul id="errors"></ul> 
+<ul id="errors"></ul>
 
 {{>footer_user}}

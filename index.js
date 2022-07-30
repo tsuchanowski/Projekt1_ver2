@@ -24,7 +24,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      maxAge: 84000000 // how long user logged in? (84000000[ms] == 24[h]) how long session is valid,
+      maxAge: 84000000
     }
   })
 )

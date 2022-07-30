@@ -1,0 +1,184 @@
+form {
+    background-color: #213b50;
+    color: #fff;
+    position: relative;
+}
+
+input {
+    display: flex;
+    background-color: #2b4a64;
+    position: relative;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: bold;
+    width: 35%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 15px;
+    border: 1px solid #2b4a64;
+    padding: 15px;
+}
+
+input:focus,
+textarea:focus {
+    background-color: #4e708c;
+    border: 1px solid #fff;
+}
+
+label {
+    display: flex;
+    position: relative;
+    margin-bottom: 2px;
+    font-size: 25px;
+    font-weight: 600;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+    color: rgb(219, 223, 30);
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    display: flex;
+    position: relative;
+    padding: 8px 18px;
+    font-size: 32px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    outline: none;
+    color: rgb(24, 20, 20);
+    background-color: #7be029;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px rgba(145, 144, 144, 0.658);
+}
+
+button:hover {
+    background-color: #3e8e41;
+    color: rgb(251, 251, 251)
+}
+
+button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#message {
+    box-sizing: content-box;
+    border-style: outset;
+    font-size: 31px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+    width: 50%;
+    height: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    left: 400px;
+    cursor: pointer;
+    animation: blinker 2s infinite;
+}
+
+@keyframes blinker {
+
+    0%,
+    49% {
+        color: rgb(249, 5, 5);
+        background-color: rgb(92, 231, 112);
+    }
+
+    50%,
+    100% {
+        color: rgb(148, 26, 40);
+        background-color: rgb(243, 236, 18);
+    }
+}
+
+#fault {
+    box-sizing: content-box;
+    border-style: outset;
+    font-size: 31px;
+    font-weight: bold;
+    text-align: center;
+    width: 50%;
+    height: max-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    left: 400px;
+    cursor: pointer;
+    animation: blinkFault 2s infinite;
+}
+
+@keyframes blinkFault {
+
+    0%,
+    49% {
+        color: white;
+        background-color: red;
+    }
+
+    50%,
+    100% {
+        color: red;
+        background-color: white;
+    }
+}
+
+#errors {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    49% {
+        color: white;
+        background-color: red;
+    }
+
+    50%,
+    100% {
+        color: red;
+        background-color: white;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    input,
+    label,
+    button {
+        width: 49%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    input,
+    label,
+    button {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    form {
+        width: 100%;
+    }
+}
