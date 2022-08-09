@@ -1,14 +1,3 @@
-{{>header_user}}
-
-{{#if isLoggedIn }}
-<form method="GET" action="/logout">
-    <br>
-    <button type="submit" id="logout">
-        WYLOGUJ
-    </button>
-    <br>
-</form>
-{{/if}}
 
 <form method="POST" action="/customer/{{customerId}}/event/add" onsubmit="return clientValidation()">
 
@@ -34,4 +23,3 @@
 
 <ul id="errors"></ul>
 
-{{>footer_events}}

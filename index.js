@@ -7,7 +7,6 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const passportConfig = require('./config/passportConfig')
 const expFlash = require('express-flash')
-
 const expSession = require('express-session')
 
 const eventRouter = require('./app/routes/eventRouter')
@@ -48,7 +47,6 @@ app.use(express.urlencoded({ extended: true }))
 passportConfig()
 app.use(passport.initialize())
 app.use(passport.session())
-
 app.use((req, res, next) => {
   res.locals.isLoggedIn = req.isAuthenticated() // pass request object to views
   next()

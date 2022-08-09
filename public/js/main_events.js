@@ -15,7 +15,7 @@ const clientValidation = () => {
 
     if (eventdate.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Podaj datę akcji/wydarzenia!  **';
+        liElement.innerText = '** ! Podaj datę akcji/wydarzenia !  **';
         errors.appendChild(liElement);
 
         return false;
@@ -23,7 +23,7 @@ const clientValidation = () => {
 
     if (selectedAction === '----') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**   Wybierz rodzaj akcji dostępnych na liście!   **';
+        liElement.innerText = '**   ! Wybierz rodzaj akcji z dostępnych na liście !   **';
         errors.appendChild(liElement);
 
         return false;
@@ -31,7 +31,7 @@ const clientValidation = () => {
 
     if (description.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Podaj opis akcji/wydarzenia!  **';
+        liElement.innerText = '**  ! Podaj opis akcji/wydarzenia !  **';
         errors.appendChild(liElement);
 
         return false;

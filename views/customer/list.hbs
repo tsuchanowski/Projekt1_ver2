@@ -1,0 +1,64 @@
+<form>
+<a href="/customer/new" id="add_customer">
+    * DODAJ KLIENTA *
+</a>
+</form>
+
+<table border="3" style="width:100%;table-layout:fixed;">
+    <tr>
+        <th class="header" style="width:5%" scope="col">
+            Lp.
+        </th>
+        <th class="header" style="width:20%" scope="col">
+            NAZWA UŻYTKOWNIKA
+        </th>
+        <th class="header" style="width:25%" scope="col">
+            ADRES
+        </th>
+        <th class="header" style="width:16%" scope="col">
+            FIRMA/OSOBA
+        </th>
+        <th class="header" style="width:16%" scope="col">
+            NUMER NIP
+        </th>
+        <th class="header" style="width:18%" scope="col">
+            AKCJE
+        </th>
+    </tr>
+</table>
+
+{{#each customers}}
+<table border="1" style="width:100%;table-layout:fixed;">
+    <tr>
+        <td class="row" rowspan="6" style="width:5%">
+            {{inc @index}}.
+        </td>
+        <td class="row" style="width:20%">
+            {{name}}
+        </td>
+        <td class="row" style="width:25%">
+            {{address}}
+        </td>
+        <td class="row" style="width:16%">
+            {{company}}
+        </td>
+        <td class="row" style="width:16%">
+            {{nipnumber}}
+        </td>
+        <td class="row" style="width:18%">
+            <form method="POST" action="/customer/delete/{{_id}}">
+                <button type="submit">
+                    USUŃ
+                </button>
+            </form>
+            <form method="GET" action="/customer/{{_id}}">
+                <button type="submit">
+                    STRONA KLIENTA
+                </button>
+            </form>
+        </td>
+    </tr>
+</table>
+{{/each}}
+
+

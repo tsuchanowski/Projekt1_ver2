@@ -1,0 +1,19 @@
+<form method="POST" action="/login/process" onsubmit="return logValidation()">
+    <label class="logowanie">Adres email użytkownika:</label>
+    <br><br>
+    <input type="email" name="username" id="username">
+    <label class="logowanie">Hasło dostępu:</label>
+    <br><br>
+    <input type="password" name="password" id="password">
+    <br>
+    <button type="submit" id="logIn">ZALOGUJ</button>
+    
+</form>
+<br>
+
+{{#if message}}
+<div id="message">{{message}}</div>
+{{/if}}
+
+<ul id="errors"></ul>
+

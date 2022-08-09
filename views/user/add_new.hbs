@@ -1,0 +1,18 @@
+<form method="POST" action="/signup/add" onsubmit="return newUserValidation()">
+    <label class="logowanie">Adres  email  nowego  użytkownika:</label>
+    <br><br>
+    <input type="email" name="email" id="email">
+    <label class="logowanie">Utwórz  hasło  dostępu:</label>
+    <br><br>
+    <input type="password" name="password" id="password">
+    <br><br>
+    <button type="submit" id="createAcc">UTWÓRZ KONTO</button>
+</form>
+<br>
+
+{{#if message}}
+<div id="fault">{{message}}</div>
+{{/if}}
+
+<ul id="errors"></ul>
+

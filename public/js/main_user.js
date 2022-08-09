@@ -12,7 +12,7 @@ const logValidation = () => {
 
     if (username.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Podaj adres email użytkownika!  **';
+        liElement.innerText = '**  ! Podaj adres email użytkownika !  **';
         errors.appendChild(liElement);
 
         return false;
@@ -20,7 +20,7 @@ const logValidation = () => {
 
     if (password.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Podaj hasło dostępu!  **';
+        liElement.innerText = '**  !! Podaj hasło dostępu !!  **';
         errors.appendChild(liElement);
 
         return false;

@@ -12,7 +12,7 @@ const newUserValidation = () => {
 
     if (email.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Podaj adres email do konta użytkownika!  **';
+        liElement.innerText = '**  ! Podaj adres email do konta użytkownika !  **';
         errors.appendChild(liElement);
 
         return false;
@@ -20,7 +20,7 @@ const newUserValidation = () => {
 
     if (password.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Utwórz nowe hasło dostępu!  **';
+        liElement.innerText = '**  !! Utwórz nowe hasło dostępu !!  **';
         errors.appendChild(liElement);
 
         return false;

@@ -1,17 +1,16 @@
 const Customer = require('../models/Customer')
 
 
-function showFormCustomer(req, res) {
-    res.render('customer/add')
+function customerNew(req, res) {
+    res.render('customer/new')
 }
 
-
-function customersList(req, res) {
+function customerList(req, res) {
     Customer.find().lean().exec(function (err, customers) {
         if (err) {
             res.send(err)
         } else {
-            res.render('customer/show', {
+            res.render('customer/list', {
                 customers,
                 helpers: {
                     inc: function (value) {
@@ -22,7 +21,6 @@ function customersList(req, res) {
         }
     })
 }
-
 
 function customerAdd(req, res) {
     const customerId = req.params.id
@@ -36,7 +34,6 @@ function customerAdd(req, res) {
     res.redirect('/customer/list')
 }
 
-
 function customerDelete(req, res, cb) {
     const customerId = req.params.id
     Customer.deleteOne({ _id: customerId }, function (err) {
@@ -48,8 +45,7 @@ function customerDelete(req, res, cb) {
     res.redirect('/customer/list')
 }
 
-
-function showCustomer(req, res, cb) {
+function customerShow(req, res, cb) {
     const customerId = req.params.id
     Customer.findOne({ _id: customerId }, function (err, customer) {
         if (err) {
@@ -59,7 +55,7 @@ function showCustomer(req, res, cb) {
             customer.populate('events')
         }
 
-        res.render('event/event_table', {
+        res.render('customer/show', {
             customerId: customer._id,
             name: customer.name,
             address: customer.address,
@@ -72,9 +68,9 @@ function showCustomer(req, res, cb) {
 
 
 module.exports = {
-    showForm: showFormCustomer,
-    customersList: customersList,
-    customerAdd: customerAdd,
-    customerDel: customerDelete,
-    showCustomer: showCustomer
+    customerNew,
+    customerList,
+    customerAdd,
+    customerDelete,
+    customerShow
 }

@@ -2,12 +2,12 @@ const Customer = require('../models/Customer')
 const Event = require('../models/Event')
 
 
-function newEvent(req, res) {
-  res.render('event/add', { customerId: req.params.id })
+function eventNew(req, res) {
+  res.render('event/new', { customerId: req.params.id })
 }
 
 
-function addEvent(req, res) {
+function eventAdd(req, res) {
   const customerId = req.params.id
 
   const event = new Event({ customer: customerId, ...req.body })
@@ -49,7 +49,7 @@ function eventDelete(req, res) {
 }
 
 module.exports = {
-  newEvent: newEvent,
-  addEvent: addEvent,
-  delEvent: eventDelete
+  eventNew,
+  eventAdd,
+  eventDelete
 }

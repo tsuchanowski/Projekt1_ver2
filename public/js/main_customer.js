@@ -18,7 +18,7 @@ const customerValidation = () => {
 
     if (name.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Podaj nazwę użytkownika!  **';
+        liElement.innerText = '**  ! Podaj nazwę użytkownika !  **';
         errors.appendChild(liElement);
 
         return false;
@@ -26,7 +26,7 @@ const customerValidation = () => {
 
     if (address.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Podaj adres!  **';
+        liElement.innerText = '**  ! Podaj adres !  **';
         errors.appendChild(liElement);
 
         return false;
@@ -34,7 +34,7 @@ const customerValidation = () => {
 
     if (company.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Podaj nazwę firmy/osoby!  **';
+        liElement.innerText = '**  ! Podaj nazwę firmy/osoby !  **';
         errors.appendChild(liElement);
 
         return false;
@@ -42,7 +42,7 @@ const customerValidation = () => {
 
     if (nipnumber.value === '') {
         const liElement = document.createElement('li');
-        liElement.innerText = '**  Podaj numer NIP!  **';
+        liElement.innerText = '**  ! Podaj numer NIP !  **';
         errors.appendChild(liElement);
 
         return false;

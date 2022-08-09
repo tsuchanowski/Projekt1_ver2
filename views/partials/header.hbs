@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,21 @@
     <title>Document</title>
     <base href="/">
 
-    <link rel="stylesheet" href="css/style.css" type="text/css"> 
-     
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <link rel="stylesheet" href="css/style_user.css" type="text/css">
+    <link rel="stylesheet" href="css/style_newUser.css" type="text/css">
 </head>
+
 <body>
+    <nav>
+        {{#if isLoggedIn }}
+        <form method="GET" action="/logout">
+            <br>
+            <button type="submit" id="logout">
+                WYLOGUJ
+            </button>
+            <br>
+        </form>
+        {{/if}}
+    </nav>
